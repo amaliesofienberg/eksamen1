@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;1,500&display=swap');
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+	display: flex;
+	align-items: center;
+    min-height: 100vh;
+    font-size: 10px;
+    line-height: 1.6;
+	font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    background-image: url(../img/baggrund.jpg);
+}
+
+a {
+	text-decoration: none;
+}
+
+.logo {
+	display: table-cell;
+	line-height: 0;
+	width: 150px;
+	margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+/*HEADER*/
+
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+
+#header .header {
+	min-height: 8vh;
+	background-color: transparent;
+	transition: .3s ease;
+}
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: #F6ECF5;
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: .5s ease left;
+}
+#header .nav-list ul.active {
+	left: 0%;
+}
+#header .nav-list ul a {
+	font-size: 1.5rem;
+	font-weight: 500;
+	letter-spacing: .2rem;
+	text-decoration: none;
+	color: #74074E;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: #d3b8c9;
+	font-size: 8rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 2px solid #6f2053;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(.8);
+	margin-right: 20px;
+}
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 1px solid #74074E;
+  animation: hamburger_puls 1s ease infinite;
+  
+}
+#header .hamburger .bar {
+	height: 1px;
+	width: 30px;
+	position: relative;
+	background-color: #6f2053;
+	z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: #6f2053;
+	transition: .3s ease;
+	transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+	top: 8px;
+}
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal {
+	100% {
+		color: #74074E;
+	}
+}
+/* End Header section */
+
+/*START INDEX SIDE*/
+#container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background: center / cover no-repeat url(../img/hero2.jpg);
+    position: relative;
+    opacity: 0.5;
+  }
+  
+  #hero-text {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    transition-delay: 10s;
+    opacity: 1 !important;
+  }
+  
+  #hero-text h1 {
+    text-transform: capitalize;
+    font-size: calc(3rem + 0.9vw);
+    color: #74074E;
+    border: 2px solid #74074E;
+    padding: 4px;
+    font-weight: 400;
+    
+  }
+
+
+
+.flexbox_index {
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.border_box {
+    margin: 5px;
+    padding: 2%;
+    border: 2px solid #74074E;
+    justify-content: center;
+    flex: 40%;
+    transition: all .7s ease-in-out;
+}
+
+.white_box {
+    margin: 5px;
+    padding: 2%;
+    background-color: #faf0f3;
+    justify-content: center;
+    flex: 40%;
+    transition: all .7s ease-in-out;
+}
+
+.flexbox_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.flexbox_h1 {
+    color: #74074E;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    padding: 4px;
+}
+
+.flexbox_p {
+    color: #74074E;
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.2rem;
+}
+
+.readmore {
+    border: 1px solid #74074E;
+    color: #74074E;
+    text-transform: uppercase;
+    background: transparent;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 8px;
+}
+
+.readmore:hover {
+    background-color: rgb(255, 255, 255);
+}  
+
+
+/*SLUT INDEX SIDE*/
+
+/*START KONKURRENCE SIDE */
+.konkurrence {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.typewriter {
+    display: inline-block;
+    width: 100%;
+}
+
+.overskrift_k {
+    color: #74074E;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    animation: typing 4s steps(15, end), blink .70s step-end infinite;
+    box-sizing: border-box;
+    
+}
+
+@keyframes typing {
+    from { 
+        width: 0% 
+    }
+    to { 
+        width: 100% 
+    }
+}
+
+@keyframes blink {
+    from, to { 
+        border-color: #74074E; 
+    }
+    50% { 
+        border-color: #74074E; 
+    }
+}
+
+.content_k {
+    font-size: 14px;
+    color: #74074E;
+    padding: 10px;
+    background-color: #fcecf1;
+    width: 85%;
+    flex: 40%;
+}
+
+.some {
+    font-family: Neue Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+.instapost {
+    width: 80%;
+    display: block;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    flex: 20%;
+}
+
+.link_k {
+    text-decoration: underline;
+    color: #44022d
+}
+
+.quotes {
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.quote_item {
+    margin: 5px;
+    padding: 1%;
+    background-color: white;
+    justify-content: center;
+    flex-direction: row;
+    flex: 15%
+}
+
+.h1_quote {
+    font-weight: 200;
+    letter-spacing: 0.4px;
+    text-align: center;
+}
+
+.quote_img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 2px;
+    float: left;
+}
+
+.quote_navn {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+/*SLUT KONKURRENCE SIDE */
+
+/*START INFOGRAPHIC SIDE*/
+.infographic {
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    
+}
+
+
+
+.overskrift_i {
+    font-size: 30px;
+    background-color: #74074E;
+    padding: 4px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.info_item {
+    margin: 5px;
+    padding: 5%;
+    background-color: #fcecf1; 
+    justify-content: center;
+    flex: 25%;
+}
+
+.info_item:hover {
+    width: 100px;
+}
+
+.info_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.info_h1 {
+    color: #4f0535;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+    font-size: 18px;
+    text-align: center;
+}
+
+.info_p {
+    color: #4f0535;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.2rem;
+    padding: 4px;
+}
+
+.footer_i {
+    width: 100%;
+    background-color: #4f0535;
+}
+
+/*SLUT INFOGRAPHIC SIDE*/
+
+/*START OPSKRIFTER */
+
+.opskrift_flex {
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+}
+
+.img_o {
+    width: 100%;
+    justify-content: center;
+    padding: 2%;
+}
+
+.img_o:hover {
+    transition: all .9s ease-in-out;
+}
+
+/*SLUT OPSKRIFTER */
+
+/*START OPSKRIFT - INDIVIDUELLE*/
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.banner_indi {
+        width: 100%;
+        height: 200px;
+        background-position: center;
+        background-image: url(../img/skyrboller.jpg);
+}
+
+.container_indi {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 120px;
+    color: #74074E;
+}
+
+.indi_h1 {
+    color: #74074E;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration-line: underline #74074E; 
+    float: right;
+    flex: 20%;
+    margin-top: 10px; 
+}
+
+.buy {
+    width: 100%;
+    display: flex;
+    background-color: #fcecf1;
+    margin: 2%;
+    flex-wrap: wrap;
+}
+
+.buy_img {
+    width: 150px;
+    display: block;
+    justify-content: center;
+}
+
+.buy_h1 {
+    font-size: 16px;
+    color: #74074E;
+    text-align: center;
+    flex: 100%;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.indi_h2 {
+    font-size: 16px;
+    color: #74074E;
+    text-align: center;
+    flex: 100%;
+    padding: 5px;
+    font-weight: 600;
+}
+
+.content_indi {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.andreopskrifter {
+    width: 100%;
+    margin-top: 10px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.andre_img1 {
+    display: block;
+    width: 50%;
+    padding: 1%;
+    float: left;
+    margin: 0 auto;
+}
+
+.andre_img2 {
+    display: block;
+    width: 50%;
+    padding: 1%;
+    float: right;
+    margin: 0 auto;
+}
+
+
+
+/*MEDIA*/
+
+@media only screen and (min-width: 800px) {
+	/* header */
+	#header .hamburger {
+    display: none;
+    }
+    
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+        background-color: transparent;
+	}
+	#header .nav-list ul li {
+    display: inline-block;
+	}
+	#header .nav-list ul li a {
+		font-size: 1rem;
+  }
+  
+  #header .nav-list .forside ul li a {
+    font-size: 1rem;
+    color: #74074E;
+  }
+  
+	#header .nav-list ul a:after {
+		display: none;
+    }
+
+    .holdingcontainer {
+        display: flex;
+        flex-flow: row-reverse wrap;
+    }
+
+    .flexbox_index {
+        flex-direction: row;
+    }
+
+    .infographic {
+        flex-direction: row;
+    }
+
+    .opskrift_flex {
+        flex-direction: row;
+    }
+
+    .img_o {
+        padding: 1%;
+        width: 400px;
+    }
+
+    .quotes {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .h1_quote {
+        flex-wrap: wrap;
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .quotes {
+        width: 100%;
+    }
+
+    .konkurrence {
+        flex-direction: row;
+    }
+
+    .instapost {
+        width: 20px;
+    }
+
+    .buy {
+        flex-direction: row;
+    }
+
+    .container_indi {
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40 px;
+    }
+
+    .andreopskrifter {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .andre_img {
+        width: 10%;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .container_indi {
+        margin-left: 30 px;
+        margin-right: 30px;
+    }
+
+
+}
